@@ -1,0 +1,66 @@
+/* The WeChat QR login window (design: 登录椰子). */
+:root {
+  --bg: #fff;
+  --text: #1d1d1f;
+  --muted: #6b6f76;
+  --line: #e4e4e7;
+  --btn-hover: #f4f4f5;
+  --focus: #2563d9;
+  background: var(--bg);
+  color: var(--text);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #2b2b2e;
+    --text: #ececec;
+    --muted: #a8abb0;
+    --line: #3e3e42;
+    --btn-hover: #38383c;
+    --focus: #7eaaff;
+  }
+}
+
+#cocotranslate-login {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 28px;
+  font: message-box;
+  font-size: 13px;
+}
+#cocotranslate-login h1 { margin: 0; font-size: 20px; font-weight: 700; }
+#cocotranslate-login .cl-sub { margin: 6px 0 18px; color: var(--muted); }
+
+#cocotranslate-login .cl-qr { position: relative; width: 300px; height: 270px; }
+#cocotranslate-login .cl-browser { width: 300px; height: 270px; }
+#cocotranslate-login .cl-status {
+  position: absolute; inset: 0; display: none; flex-direction: column; align-items: center; justify-content: center;
+  gap: 12px; padding: 0 24px; background: var(--bg); color: var(--muted); text-align: center;
+}
+#cocotranslate-login .cl-qr:not([data-view="qr"]) .cl-status { display: flex; }
+#cocotranslate-login .cl-status p { margin: 0; color: var(--text); }
+#cocotranslate-login .cl-spin {
+  width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--line); border-top-color: var(--muted);
+  animation: cl-spin 0.9s linear infinite;
+}
+@keyframes cl-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { #cocotranslate-login .cl-spin { animation: none; } }
+
+#cocotranslate-login .cl-or {
+  align-self: stretch; display: flex; align-items: center; gap: 12px; margin: 14px 0 12px; color: var(--muted); font-size: 12px;
+}
+#cocotranslate-login .cl-or::before, #cocotranslate-login .cl-or::after { content: ""; flex: 1; border-top: 1px solid var(--line); }
+
+#cocotranslate-login button {
+  appearance: none; margin: 0; min-width: 0; min-height: 0; box-sizing: border-box; font: inherit; color: inherit;
+  border: 1px solid var(--line); border-radius: 10px; background: var(--bg); cursor: pointer;
+}
+#cocotranslate-login button:hover { background: var(--btn-hover); }
+#cocotranslate-login button:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+#cocotranslate-login .cl-google {
+  align-self: stretch; height: 40px; display: flex; align-items: center; justify-content: center; gap: 10px;
+  font-size: 14px; font-weight: 600;
+}
+#cocotranslate-login .cl-google img { width: 20px; height: 20px; }
+#cocotranslate-login .cl-btn { padding: 5px 14px; }

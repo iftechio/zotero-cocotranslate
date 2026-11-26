@@ -1,0 +1,8 @@
+{
+  "name": {
+    "message": "椰子翻譯"
+  },
+  "description": {
+    "message": "把 Zotero 中的 PDF 翻譯成保留版面的雙語對照或純譯文 PDF，存回原項目下。"
+  }
+}

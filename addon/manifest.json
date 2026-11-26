@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "__MSG_name__",
+  "version": "__VERSION__",
+  "default_locale": "en",
+  "description": "__MSG_description__",
+  "homepage_url": "https://cocotranslate.com",
+  "author": "CocoTranslate",
+  "icons": {
+    "48": "content/icons/coco-48.png",
+    "96": "content/icons/coco-96.png"
+  },
+  "applications": {
+    "zotero": {
+      "id": "cocotranslate@cocotranslate.com",
+      "update_url": "__UPDATE_URL__",
+      "strict_min_version": "6.999",
+      "strict_max_version": "10.*"
+    }
+  }
+}

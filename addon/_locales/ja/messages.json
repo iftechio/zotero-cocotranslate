@@ -1,0 +1,8 @@
+{
+  "name": {
+    "message": "CocoTranslate"
+  },
+  "description": {
+    "message": "Zotero の PDF をレイアウトを保ったまま対訳または訳文のみの PDF に翻訳し、元の項目の下に保存します。"
+  }
+}

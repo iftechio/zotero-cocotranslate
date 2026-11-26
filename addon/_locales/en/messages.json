@@ -1,0 +1,8 @@
+{
+  "name": {
+    "message": "CocoTranslate"
+  },
+  "description": {
+    "message": "Translates PDFs in Zotero into layout-preserving bilingual or translation-only PDFs, saved under the original item."
+  }
+}

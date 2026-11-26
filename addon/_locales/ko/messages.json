@@ -1,0 +1,8 @@
+{
+  "name": {
+    "message": "CocoTranslate"
+  },
+  "description": {
+    "message": "Zotero의 PDF를 레이아웃을 유지한 원문 대조 또는 번역문 PDF로 번역해 원래 항목 아래에 저장합니다."
+  }
+}

@@ -1,0 +1,216 @@
+/* Main window: the progress popup (bottom-right), the toolbar button and its first-close tip.
+   Colours follow Zotero's own light / dark look. */
+#cocotranslate-popup {
+  --bg: #ededed;
+  --border: #b4b4b4;
+  --text: #1d1d1f;
+  --muted: #555;
+  --faint: #6b6b6b;
+  --track: #d4d4d4;
+  --fill: #3478f6;
+  --btn-bg: #fff;
+  --btn-border: #c2c2c2;
+  --btn-hover: #f5f5f5;
+  --pri-bg: #1d1d1f;
+  --pri-text: #fff;
+  --pri-hover: #3a3a3c;
+  --ok: #1e7a46;
+  --err: #c62828;
+  --warn: #8a5300;
+  --rule: #d3d3d3;
+  --confirm-bg: #fff;
+
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 2147483000;
+  width: 360px;
+  max-width: calc(100vw - 32px);
+  box-sizing: border-box;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
+  color: var(--text);
+  font: message-box;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+@media (prefers-color-scheme: dark) {
+  #cocotranslate-popup {
+    --bg: #2b2b2d;
+    --border: #4a4a4d;
+    --text: #ececec;
+    --muted: #b9b9bb;
+    --faint: #9a9a9c;
+    --track: #47474a;
+    --fill: #5b9bff;
+    --btn-bg: #3a3a3d;
+    --btn-border: #56565a;
+    --btn-hover: #444448;
+    --pri-bg: #ececec;
+    --pri-text: #1d1d1f;
+    --pri-hover: #d4d4d6;
+    --ok: #5cc98a;
+    --err: #ff7b72;
+    --warn: #e0a84a;
+    --rule: #424245;
+    --confirm-bg: #333336;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  }
+}
+
+#cocotranslate-popup .ph { display: flex; align-items: center; gap: 7px; font-weight: 650; font-size: 14px; }
+#cocotranslate-popup .ph img { width: 18px; height: 18px; border-radius: 50%; }
+#cocotranslate-popup .ph .cnt { color: var(--faint); font-weight: 400; font-size: 12.5px; }
+#cocotranslate-popup .ph .x {
+  margin-left: auto; border: 0; background: none; color: var(--faint); font-size: 17px; line-height: 1;
+  cursor: pointer; padding: 0 4px; border-radius: 4px;
+}
+#cocotranslate-popup .ph .x:hover { background: var(--track); color: var(--text); }
+
+#cocotranslate-popup .st { font-weight: 650; font-size: 14px; margin-top: 10px; }
+#cocotranslate-popup .st.ok { color: var(--ok); }
+#cocotranslate-popup .st.err { color: var(--err); }
+#cocotranslate-popup .fn {
+  margin-top: 6px; overflow-wrap: anywhere; display: -webkit-box; -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; overflow: hidden;
+}
+#cocotranslate-popup .sub { margin-top: 6px; color: var(--muted); font-variant-numeric: tabular-nums; }
+#cocotranslate-popup .sub.detail { font-size: 12px; color: var(--warn); }
+#cocotranslate-popup .sub.note { font-size: 12px; color: var(--faint); }
+
+#cocotranslate-popup .bar { height: 6px; border-radius: 3px; background: var(--track); overflow: hidden; margin-top: 8px; }
+#cocotranslate-popup .bar i { display: block; height: 100%; background: var(--fill); border-radius: 3px; transition: width 0.35s ease; }
+#cocotranslate-popup .bar.ind i { width: 30%; animation: cocotranslate-ind 1.3s ease-in-out infinite; }
+#cocotranslate-popup .bar.paused i { background: var(--faint); animation: none; }
+@keyframes cocotranslate-ind { 0% { transform: translateX(-100%); } 100% { transform: translateX(340%); } }
+@media (prefers-reduced-motion: reduce) {
+  #cocotranslate-popup .bar.ind i { animation: none; width: 100%; opacity: 0.45; }
+  #cocotranslate-popup .bar i { transition: none; }
+}
+
+/* Zotero's chrome styles buttons (native appearance, margins, minimum sizes); start from nothing. */
+#cocotranslate-popup button {
+  appearance: none;
+  margin: 0;
+  min-width: 0;
+  min-height: 0;
+  box-sizing: border-box;
+  font: inherit;
+  line-height: 1.4;
+}
+
+#cocotranslate-popup .acts { display: flex; gap: 8px; justify-content: flex-end; align-items: center; margin-top: 12px; }
+#cocotranslate-popup .lnk {
+  margin-right: auto; border: 0; background: none; color: var(--muted); text-decoration: underline;
+  text-underline-offset: 2px; cursor: pointer; padding: 0; font-size: 12.5px;
+}
+#cocotranslate-popup .btn {
+  border: 1px solid var(--btn-border); background: var(--btn-bg); color: var(--text); border-radius: 5px;
+  padding: 3px 12px; font-size: 13px; cursor: pointer; white-space: nowrap;
+}
+#cocotranslate-popup .btn:hover { background: var(--btn-hover); }
+#cocotranslate-popup .btn.pri { background: var(--pri-bg); border-color: var(--pri-bg); color: var(--pri-text); }
+#cocotranslate-popup .btn.pri:hover { background: var(--pri-hover); }
+#cocotranslate-popup .btn.sm { padding: 1px 8px; font-size: 12px; }
+#cocotranslate-popup button:focus-visible { outline: 2px solid var(--fill); outline-offset: 2px; }
+
+#cocotranslate-popup .confirm {
+  margin-top: 10px; background: var(--confirm-bg); border: 1px solid var(--btn-border); border-radius: 5px;
+  padding: 8px 10px; font-size: 12.5px;
+}
+#cocotranslate-popup .confirm .acts { margin-top: 8px; }
+
+#cocotranslate-popup .list { margin-top: 8px; max-height: 300px; overflow: auto; border-top: 1px solid var(--rule); }
+#cocotranslate-popup .row {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1px 8px; padding: 8px 0;
+  border-bottom: 1px solid var(--rule); align-items: start;
+}
+#cocotranslate-popup .row:last-child { border-bottom: 0; }
+#cocotranslate-popup .row .t { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 550; }
+#cocotranslate-popup .row .s { grid-column: 1 / 3; color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+#cocotranslate-popup .row .s.ok { color: var(--ok); }
+#cocotranslate-popup .row .s.err { color: var(--err); }
+#cocotranslate-popup .row .bar { grid-column: 1 / 3; margin-top: 3px; height: 4px; }
+#cocotranslate-popup .row .confirm { grid-column: 1 / 3; }
+
+/* Toolbar button. Zotero sizes its own icons for direct children; ours sits in the badge stack. */
+#cocotranslate-tb .toolbarbutton-icon { width: 18px; height: 18px; border-radius: 50%; }
+#cocotranslate-tb .toolbarbutton-badge {
+  align-self: start; justify-self: end; margin: -5px -6px 0 0; box-sizing: border-box;
+  min-width: 15px; height: 15px; padding: 0 4px; border-radius: 8px; background: #3478f6; color: #fff;
+  font: 700 10px/15px system-ui, sans-serif; text-align: center; font-variant-numeric: tabular-nums;
+}
+#cocotranslate-tb[data-failed] .toolbarbutton-badge { background: #c62828; }
+#cocotranslate-tb .toolbarbutton-badge:empty { display: none; }
+
+#cocotranslate-tip {
+  position: fixed; z-index: 2147483000; width: max-content; max-width: 260px; box-sizing: border-box; padding: 8px 10px;
+  background: #1d1d1f; color: #fff; border-radius: 6px; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  font: message-box; font-size: 12.5px; line-height: 1.45;
+}
+#cocotranslate-tip::before {
+  content: ""; position: absolute; top: -5px; left: 16px;
+  border: 5px solid transparent; border-top: 0; border-bottom-color: #1d1d1f;
+}
+#cocotranslate-tip button {
+  appearance: none; display: block; margin: 6px 0 0; min-width: 0; min-height: 0; border: 0; border-radius: 4px;
+  background: #3a3a3c; color: #fff; padding: 2px 8px; font: inherit; font-size: 12px; cursor: pointer;
+}
+#cocotranslate-tip button:hover { background: #48484a; }
+#cocotranslate-tip button:focus-visible { outline: 2px solid #5b9bff; outline-offset: 2px; }
+@media (prefers-color-scheme: dark) {
+  #cocotranslate-tip { background: #ececec; color: #1d1d1f; }
+  #cocotranslate-tip::before { border-bottom-color: #ececec; }
+  #cocotranslate-tip button { background: #d4d4d6; color: #1d1d1f; }
+  #cocotranslate-tip button:hover { background: #c4c4c6; }
+}
+
+/* Item pane section (right column). Sits in Zotero's own pane, so it takes the pane's font and colours. */
+.cocotranslate-sec {
+  --muted: var(--fill-secondary, #666);
+  --track: #d4d4d4;
+  --fill: #3478f6;
+  --err: #c62828;
+  --btn-bg: #fff;
+  --btn-border: #c2c2c2;
+  --btn-hover: #f5f5f5;
+  display: flex; flex-direction: column; gap: 10px; line-height: 1.45;
+  /* long file names must not widen Zotero's pane */
+  contain: inline-size;
+}
+@media (prefers-color-scheme: dark) {
+  .cocotranslate-sec {
+    --track: #47474a; --fill: #5b9bff; --err: #ff7b72;
+    --btn-bg: #3a3a3d; --btn-border: #56565a; --btn-hover: #444448;
+  }
+}
+.cocotranslate-sec .hint { color: var(--muted); font-size: 12px; }
+.cocotranslate-sec .err { color: var(--err); }
+.cocotranslate-sec .run { display: flex; flex-direction: column; gap: 5px; font-variant-numeric: tabular-nums; }
+.cocotranslate-sec .bar { height: 4px; border-radius: 2px; background: var(--track); overflow: hidden; }
+.cocotranslate-sec .bar i { display: block; height: 100%; background: var(--fill); border-radius: 2px; }
+/* redrawn on every update, so no animation: a dim full bar while there is no percentage */
+.cocotranslate-sec .bar.ind i { width: 100%; opacity: 0.4; }
+.cocotranslate-sec .bar.paused i { background: var(--muted); }
+.cocotranslate-sec .out { display: flex; align-items: center; gap: 10px; }
+.cocotranslate-sec .out .o { flex: 1; min-width: 0; }
+.cocotranslate-sec .out .m { color: var(--muted); font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cocotranslate-sec :is(.go, .acts) { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.cocotranslate-sec button {
+  appearance: none; margin: 0; min-width: 0; min-height: 0; box-sizing: border-box; font: inherit; line-height: 1.4; cursor: pointer;
+}
+.cocotranslate-sec .btn {
+  border: 1px solid var(--btn-border); background: var(--btn-bg); color: inherit; border-radius: 5px;
+  padding: 2px 10px; font-size: 12.5px; white-space: nowrap;
+}
+.cocotranslate-sec .btn:hover { background: var(--btn-hover); }
+.cocotranslate-sec .btn.pri { font-weight: 600; }
+.cocotranslate-sec .lnk {
+  border: 0; background: none; padding: 0; color: var(--muted); font-size: 12px;
+  text-decoration: underline; text-underline-offset: 2px;
+}
+.cocotranslate-sec button:focus-visible { outline: 2px solid var(--fill); outline-offset: 2px; }

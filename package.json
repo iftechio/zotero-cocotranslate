@@ -1,0 +1,28 @@
+{
+  "name": "zotero-cocotranslate",
+  "version": "1.0.1",
+  "private": true,
+  "description": "CocoTranslate for Zotero: translate PDFs into layout-preserving bilingual or translation-only PDFs",
+  "license": "MIT",
+  "author": "CocoTranslate",
+  "homepage": "https://cocotranslate.com/zotero",
+  "repository": "github:iftechio/zotero-cocotranslate",
+  "type": "module",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "build:dev": "node scripts/build.mjs --dev",
+    "start": "node scripts/build.mjs --dev && node scripts/start.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test \"test/*.test.mjs\""
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "typescript": "7.0.2"
+  },
+  "allowScripts": {
+    "esbuild": false
+  }
+}

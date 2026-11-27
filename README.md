@@ -4,7 +4,7 @@
 
 # 椰子翻译 Zotero 插件
 
-[![Zotero 7–10](https://img.shields.io/badge/Zotero-7--10-green?style=flat-square&logo=zotero&logoColor=CC2936)](https://www.zotero.org) [![Release](https://img.shields.io/github/v/release/iftechio/zotero-cocotranslate?style=flat-square)](https://github.com/iftechio/zotero-cocotranslate/releases/latest)
+[![Zotero 7–10](https://img.shields.io/badge/Zotero-7--10-green?style=flat-square&logo=zotero&logoColor=CC2936)](https://www.zotero.org) [![Zotero 中文社区 · 已收录](https://zotero-chinese.com/badges/listed.svg)](https://zotero-chinese.com/plugins/) [![Release](https://img.shields.io/github/v/release/iftechio/zotero-cocotranslate?style=flat-square)](https://github.com/iftechio/zotero-cocotranslate/releases/latest)
 
 [English](README.en.md)
 
